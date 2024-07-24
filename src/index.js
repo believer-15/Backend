@@ -6,11 +6,22 @@ const ServerConfig = require('./config/serverConfig');
 
 const connectDB = require('./config/dbConfig');
 
+const userRouter = require('./routes/userRoute');
+const cartRouter = require('./routes/cartRoute');
+const authRouter = require('./routes/authRoute');
+
+
 const app = express();
 
 app.use(express.json());
 app.use(express.text());
 app.use(express.urlencoded({ extended: true}));
+
+
+//Routing middleware
+app.use('/users', userRouter); // connects the router to the server 
+app.use('/carts', cartRouter);
+app.use('/auth', authRouter);
 
 
 app.post('/pong', (req, res) => {
