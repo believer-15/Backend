@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+// const { performance } = require('perf_hooks');
+
 const serverConfig = require('./serverConfig')
 
 async function connectDB(){
@@ -11,5 +13,10 @@ async function connectDB(){
         console.log(error);
     }
 }
+
+
+// const vow = performance.now();
+
+// console.log(`DB Execution ${vow}`);
 
 module.exports = connectDB;
