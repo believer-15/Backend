@@ -19,6 +19,7 @@ const { isLoggedIn } = require('./validation/authValidator');
 const uploader = require('./middleware/multerMiddleware');
 
 const productRouter = require('./routes/productRoute');
+const orderRouter = require('./routes/orderRoutes');
 
 
 const app = express();
@@ -35,6 +36,8 @@ app.use('/users', userRouter); // connects the router to the server
 app.use('/carts', cartRouter);
 app.use('/auth', authRouter);
 app.use('/products', productRouter);
+app.use('/orders', orderRouter);
+
 
 
 app.get('/ping', isLoggedIn, (req, res) => {
