@@ -3,7 +3,7 @@ const BadRequestError = require("../utils/badRequestError");
 const NotFoundError = require("../utils/notFoundError");
 const { findUser } = require("../repositories/userRepository");
 const InternalServerError = require("../utils/internalServerError");
-const { createNewOrder } = require("../repositories/orderRepository");
+const { createNewOrder, getOrdersByUserId, getOrderById, updateOrderStatus } = require("../repositories/orderRepository");
 
 async function createOrder(userId, paymentMethod) {
 
@@ -44,6 +44,34 @@ async function createOrder(userId, paymentMethod) {
     return order;
 }
 
+async function getAllOrdersCreatedByUser(userId) {
+    const orders = await getOrdersByUserId(userId);
+    if(!orders) {
+        throw new NotFoundError("Orders");
+    }
+    return orders;
+}
+
+async function getOrderDetailsById(orderId) {
+    const order = await getOrderById(orderId);
+    if(!order) {
+        throw new NotFoundError("Orders");
+    }
+    return order;
+}
+
+async function updateOrder(orderId, status) {
+    const order = await updateOrderStatus(orderId, status);
+    if(!order) {
+        throw new NotFoundError("Orders");
+    }
+    return order;
+}
+
+
 module.exports = {
-    createOrder
+    createOrder,
+    getAllOrdersCreatedByUser,
+    getOrderDetailsById,
+    updateOrder
 }
