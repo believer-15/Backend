@@ -43,6 +43,7 @@ async function modifyCart(userId, productId, shouldAdd = true){
                 else
                     throw new AppError("The quantity of the item requested is not available", 404);
             }
+            foundProduct = true;
         }
     });
 
@@ -62,7 +63,13 @@ async function modifyCart(userId, productId, shouldAdd = true){
     return cart;
 }
 
+async function clearProductsFromCart(userId) {
+    const response = await clearCart(userId);
+    return response;
+}
+
 module.exports = {
     getCart,
-    modifyCart
+    modifyCart,
+    clearProductsFromCart
 }
