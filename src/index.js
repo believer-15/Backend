@@ -40,6 +40,8 @@ app.use('/orders', orderRouter);
 
 
 
+
+
 app.get('/ping', isLoggedIn, (req, res) => {
     console.log(req.body);
     console.log(req.cookies);

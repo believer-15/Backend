@@ -6,7 +6,7 @@ const cartRouter = express.Router();
 
 cartRouter.get('/', isLoggedIn, getCartByUser);
 
-cartRouter.post('/:operation/:productId'. isLoggedIn, modifyProductToCart);
+cartRouter.post('/:operation/:productId', isLoggedIn, modifyProductToCart);
 
 cartRouter.delete('/products', isLoggedIn, clearCartById);
 
