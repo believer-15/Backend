@@ -15,6 +15,7 @@ productRouter.post(
     addProduct
 );
 productRouter.get('/:id', getProduct);
+productRouter.get('/', getProducts);
 productRouter.delete('/:id', deleteProduct);
 
 
