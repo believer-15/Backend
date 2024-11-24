@@ -38,6 +38,7 @@ app.use(express.text());
 app.use(express.urlencoded({ extended: true}));
 
 
+
 //Routing middleware
 app.use('/users', userRouter); // connects the router to the server 
 app.use('/carts', cartRouter);
