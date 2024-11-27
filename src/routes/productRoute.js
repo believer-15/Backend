@@ -1,5 +1,5 @@
 const express = require('express');
-const { addProduct, deleteProduct, getProduct } = require('../controllers/productController');
+const { addProduct, deleteProduct, getProducts, getProduct } = require('../controllers/productController');
 const uploader = require('../middleware/multerMiddleware');
 const { isLoggedIn, isAdmin } = require('../validation/authValidator');
 
@@ -15,7 +15,7 @@ productRouter.post(
     addProduct
 );
 productRouter.get('/:id', getProduct);
-productRouter.get('/', getProduct);
+productRouter.get('/', getProducts);
 productRouter.delete('/:id', deleteProduct);
 
 
