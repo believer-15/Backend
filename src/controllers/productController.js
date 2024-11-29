@@ -1,4 +1,4 @@
-const { getProductById, deleteProductById } = require('../services/productService');
+const { getProductById, getAllProductsData, deleteProductById } = require('../services/productService');
 const { createProduct } = require('../services/productService');
 const AppError = require('../utils/appError');
 
