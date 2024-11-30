@@ -10,7 +10,7 @@ async function login(req, res){
 
         res.cookie("authToken", response.token, {
             httpOnly: true,
-            secure: COOKIE_SECURE,
+            secure: false,
             // sameSite: "lax",
             // domain: FRONTEND_URL, 
             maxAge: 7 * 24 * 60 * 60 * 1000
