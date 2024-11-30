@@ -28,7 +28,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: 'https://pizzaw.netlify.app',
+    origin: 'https://food-frontend-virid.vercel.app',
     credentials: true,
 }));
 
