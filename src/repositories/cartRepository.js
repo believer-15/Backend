@@ -1,11 +1,11 @@
-const cart = require('../schema/cartSchema');
+const Cart = require('../schema/cartSchema');
 const InternalServerError = require('../utils/internalServerError');
 const NotFoundError = require('../utils/notFoundError');
 
 
 async function createCart(userId) {
     try {
-        const newCart = await cart.create({
+        const newCart = await Cart.create({
             user: userId,
         });
         return newCart;
@@ -24,7 +24,7 @@ async function createCart(userId) {
 
 async function getCartByUserId(userId) {
     try {
-        const cart = await cart.findOne({
+        const cart = await Cart.findOne({
             user: userId
         }).populate('items.product');
         return cart;

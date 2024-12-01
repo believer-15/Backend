@@ -15,7 +15,7 @@ async function loginUser(authDetails){
 
 
     if(!user){
-        throw { message: "No, user is found", statusCode: 404 };
+        throw { message: "No, user is found with the given email", statusCode: 404 };
     }
 
     // 2. If user is found we need to compare incoming password with hashedPass

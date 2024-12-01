@@ -1,3 +1,4 @@
+const Order = require("../schema/orderSchema");
 const InternalServerError = require("../utils/internalServerError");
 
 async function createNewOrder(orderDetails) {

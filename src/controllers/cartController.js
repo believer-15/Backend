@@ -31,7 +31,7 @@ async function getCartByUser(req, res){
 
 async function modifyProductToCart(req, res){
     try {
-        const cart = await modifyCart(req.user.id, req,params.productId, req.params.operation == "add");
+        const cart = await modifyCart(req.user.id, req.params.productId, req.params.operation == "add");
         return res.status(200).json({
             success: true,
             message: "Successful added product to the cart",

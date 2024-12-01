@@ -1,4 +1,4 @@
-const { getCartByUserId } = require("../repositories/cartRepository");
+const { getCartByUserId, clearCart } = require("../repositories/cartRepository");
 const { getProductById } = require("../repositories/productRepository");
 const AppError = require("../utils/appError");
 const BadRequestError = require("../utils/badRequestError");
@@ -34,6 +34,8 @@ async function modifyCart(userId, productId, shouldAdd = true){
                     throw new AppError("The quantity of the item requested is not available", 404);
             } else {
                 if(item.quantity > 0)
+                    // console.log(item.quantity);
+                    // console.log(quantityValue);
                     item.quantity += quantityValue;
                     if(item.quantity == 0) {
                         cart.items = cart.items.filter(item => item.product._id != productId);

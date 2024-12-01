@@ -28,7 +28,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: 'https://pizzaw.netlify.app',
+    origin: ServerConfig.FRONTEND_URL,
     credentials: true,
 }));
 
