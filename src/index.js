@@ -28,7 +28,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: ServerConfig.FRONTEND_URL,
+    origin: 'https://pizzaw.netlify.app',
     credentials: true,
 }));
 
@@ -50,7 +50,7 @@ app.use('/orders', orderRouter);
 
 
 
-app.get('/ping', isLoggedIn, (req, res) => {
+app.get('/ping', (req, res) => {
     console.log(req.body);
     console.log(req.cookies);
     return res.json({Message: "Pong"});
